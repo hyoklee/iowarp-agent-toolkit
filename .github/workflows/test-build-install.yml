@@ -129,7 +129,7 @@ jobs:
 
     - name: Test import
       run: |
-        python -c "import iowarp_agent_toolkit; print(f'Installed with [{matrix.extra}]: {iowarp_agent_toolkit.__version__}')"
+        python -c "import iowarp_agent_toolkit; print(f'Installed with [${{ matrix.extra }}]: {iowarp_agent_toolkit.__version__}')"
 
   test-all-extras:
     name: Test All Optional Dependencies
