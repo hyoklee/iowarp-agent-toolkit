@@ -124,15 +124,22 @@ iowarp-agent-toolkit = "iowarp_agent_toolkit.cli:main"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.hooks.custom]
+path = "hatch_build.py"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/iowarp_agent_toolkit"]
+artifacts = [
+    "agent-toolkit-mcp-servers/",
+    "agent-toolkit-ai-devkit/",
+    "agent-toolkit-mcp-clients/",
+]
 
 [tool.hatch.build.targets.sdist]
 include = [
     "src/",
-    "agent-toolkit-mcp-servers/",
-    "agent-toolkit-ai-devkit/",
-    "agent-toolkit-mcp-clients/",
+    "build_tools.py",
+    "hatch_build.py",
     "README.md",
     "LICENSE",
 ]
