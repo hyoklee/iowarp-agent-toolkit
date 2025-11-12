@@ -124,7 +124,8 @@ jobs:
     - name: Install package with ${{ matrix.extra }} extra
       shell: bash
       run: |
-        pip install "dist/*.whl[${{ matrix.extra }}]"
+        wheel_file=$(ls dist/*.whl)
+        pip install "${wheel_file}[${{ matrix.extra }}]"
 
     - name: Test import
       run: |
@@ -150,7 +151,8 @@ jobs:
     - name: Install package with all extras
       shell: bash
       run: |
-        pip install "dist/*.whl[all]"
+        wheel_file=$(ls dist/*.whl)
+        pip install "${wheel_file}[all]"
 
     - name: Test import
       run: |
