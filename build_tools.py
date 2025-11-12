@@ -71,6 +71,7 @@ def download_and_extract_source(target_dir: Path) -> None:
         finally:
             # Clean up temporary tarball
             if os.path.exists(tmp_file.name):
+                tmp_file.close()
                 os.unlink(tmp_file.name)
 
 
